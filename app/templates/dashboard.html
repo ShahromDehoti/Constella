@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kuiperview Dashboard</title>
+  <title>Constella Dashboard</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -12,6 +12,14 @@
   </header>
 
   <main>
+    <section class="map">
+        <h2>Satellite Map</h2>
+        <div id="satellite-map" style="height: 500px;"></div>
+      </section>
+      
+      <!-- Add Leaflet CSS in <head> -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+      
     <section class="metrics">
       <h2>Network Metrics</h2>
       <ul id="network-metrics"></ul>
@@ -41,5 +49,7 @@
   </main>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </body>
 </html>

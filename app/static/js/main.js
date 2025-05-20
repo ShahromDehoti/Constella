@@ -35,7 +35,42 @@ async function fetchMetrics() {
       li.innerHTML = `<strong>[${alert.severity}]</strong> ${alert.type}: ${alert.message} <em>(${new Date(alert.timestamp).toLocaleString()})</em>`;
       alertsEl.appendChild(li);
     });
+
+    // Plot satellites on the map
+    plotSatellites(data.satellites);
+}
+
+let map;
+
+function initMap() {
+  map = L.map('satellite-map').setView([0, 0], 2);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+  }).addTo(map);
+}
+
+function plotSatellites(satellites) {
+  // Clear existing markers
+  if (map) {
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Marker) {
+        map.removeLayer(layer);
+      }
+    });
   }
-  
-  document.addEventListener('DOMContentLoaded', fetchMetrics);
+
+  // Add new markers
+  satellites.forEach(sat => {
+    const marker = L.marker([sat.lat, sat.lng]).addTo(map);
+    marker.bindPopup(`<b>ID:</b> ${sat.id}<br><b>Status:</b> ${sat.status}`);
+  });
+}
+
+// Initialize map first, then fetch data
+document.addEventListener('DOMContentLoaded', () => {
+  initMap();
+  fetchMetrics();
+});
+
   
