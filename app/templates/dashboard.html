@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuiperview Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Constella - Satellite Network Monitor</h1>
+  </header>
+
+  <main>
+    <section class="metrics">
+      <h2>Network Metrics</h2>
+      <ul id="network-metrics"></ul>
+    </section>
+
+    <section class="satellites">
+      <h2>Satellites</h2>
+      <table id="satellite-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Altitude (km)</th>
+            <th>Speed (km/s)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="alerts">
+      <h2>System Alerts</h2>
+      <ul id="alerts"></ul>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
