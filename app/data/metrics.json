@@ -1,0 +1,50 @@
+{
+    "network": {
+      "uptime": "99.982%",
+      "latency_ms": 43,
+      "throughput_mbps": 220.5,
+      "packet_loss_percent": 0.02,
+      "connected_devices": 1432
+    },
+    "satellites": [
+      {
+        "id": "SAT-0001",
+        "status": "Operational",
+        "lat": 35.6895,
+        "lng": 139.6917,
+        "altitude_km": 550,
+        "speed_kmps": 7.6
+      },
+      {
+        "id": "SAT-0002",
+        "status": "Operational",
+        "lat": 40.7128,
+        "lng": -74.0060,
+        "altitude_km": 548,
+        "speed_kmps": 7.5
+      },
+      {
+        "id": "SAT-0003",
+        "status": "Idle",
+        "lat": -33.8688,
+        "lng": 151.2093,
+        "altitude_km": 549,
+        "speed_kmps": 7.6
+      }
+    ],
+    "alerts": [
+      {
+        "timestamp": "2025-05-18T03:15:00Z",
+        "type": "Latency Spike",
+        "severity": "Warning",
+        "message": "Latency exceeded 100ms for 3 minutes."
+      },
+      {
+        "timestamp": "2025-05-17T18:50:00Z",
+        "type": "Packet Loss",
+        "severity": "Critical",
+        "message": "Packet loss detected in region Asia-Pacific."
+      }
+    ]
+  }
+  
